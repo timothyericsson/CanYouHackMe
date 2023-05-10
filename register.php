@@ -21,15 +21,22 @@ if (isset($_POST["register"])) {
       echo "The username or email is already taken.";
     } else {
       // insert the user into the database
-      $sql = "INSERT INTO security (username, points, password) VALUES ('$username', '10', '$password')";
+      $sql = "INSERT INTO security (username, password) VALUES ('$username', '$password')";
       mysqli_query($db, $sql);
       // display a success message
       echo "You have registered successfully.";
+      // redirect the user to the login page after three seconds
+      header("Refresh: 2; URL=login.php");
     }
   }
 }
-echo "<div style='text-align: right;'>";
-echo "<a href='index.php'>Home</a>";
+// Create a container div for the buttons and set its position, width and height
+// Adjust width +100px per extra button added
+echo "<div style='position: absolute; top: 0; right: 0; width: 450px; height: 100px;'>";
+
+// Create the buttons and set their margin and onclick attributes
+echo "<button style='margin: 10px;' onclick='location.href=\"index.php\"'>Home</button>";
+echo "<button style='margin: 10px;' onclick='location.href=\"login.php\"'>Login</button>";
 echo "</div>";
 ?>
 

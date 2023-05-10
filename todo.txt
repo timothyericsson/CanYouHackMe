@@ -1,0 +1,1 @@
+Put different catagories on homepage with top left small text buttons instead of boxes like old design. 

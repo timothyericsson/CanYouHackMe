@@ -18,9 +18,9 @@ session_start();
 
 // Check if the user is already logged in
 if (isset($_SESSION["username"])) {
-// Display a welcome message
-echo "<div style='text-align: left;'>";
-echo "Welcome, " . $_SESSION["username"] . "! ";
+
+// Display the title
+echo "<h2>This is " . $_SESSION["username"] . "'s profile. </h2>";
 
 // Query the database for the user's points
 $sql = "SELECT points FROM security WHERE username = '" . $_SESSION["username"] . "'";
@@ -32,13 +32,29 @@ if ($result) {
 $row = mysqli_fetch_assoc($result);
 
 // Display the points
-echo "You have " . $row["points"] . " points. ";
-} else {
-// Display an error message
-echo "Error: " . mysqli_error($conn) . ". ";
+echo "<p>You have " . $row["points"] . " points. </p>";
 }
 
-echo "</div>";
+// Query the database for the user's submitted flags
+$sql = "SELECT flag FROM submissions WHERE username = '" . $_SESSION["username"] . "'";
+$result = mysqli_query($conn, $sql);
+
+// Check if the query was successful
+if ($result) {
+  // Display a heading for the flags
+  echo "<h3>Flags you have submitted:</h3>";
+  // Create an unordered list for the flags
+  echo "<ul>";
+  // Loop through the result set and display each flag as a list item
+  while ($row = mysqli_fetch_array($result)) {
+    echo "<li>" . $row["flag"] . "</li>";
+  }
+  // Close the unordered list
+  echo "</ul>";
+} else {	
+    // Display an error message	
+    echo "<p>Error: " . mysqli_error($conn) . ". </p>";	
+  }
 
 // Create a container div for the buttons and set its position, width and height
 // Adjust width +100px per extra button added
@@ -61,7 +77,3 @@ echo "<button style='margin: 10px;' onclick='location.href=\"login.php\"'>Login<
 echo "</div>";
 }
 ?>
-
-<h1>This is a simple example website</h1>
-<p>It has a login button on the top right</p>
-<p>There might be more to explore.</p>
