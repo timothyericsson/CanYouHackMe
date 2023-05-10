@@ -57,8 +57,10 @@ show databases;
 use users;
 
 CREATE TABLE security ( username VARCHAR(255), password VARCHAR(255), points VARCHAR(255) );
+//explain why int is needed
+ALTER TABLE users MODIFY points int;
 
-INSERT INTO security (username, password, points) VALUES ('admin', 'password123456789', '10');
+INSERT INTO security (username, password) VALUES ('admin', '123456789');
 
 select * from security; 
 
