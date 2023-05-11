@@ -18,6 +18,7 @@ sudo apt install php libapache2-mod-php php-mysql gnupg
 
 //Restart Apache
 sudo service apache2 start 
+sudo service apache2 status
 
 //Create and visit a test file
 
