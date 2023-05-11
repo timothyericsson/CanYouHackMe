@@ -33,20 +33,21 @@ sudo service apache2 status
 
 
 //MySQL: 
-//Copy download link here, make sure copied link ends in .deb
+//Copy download link for mysql, make sure copied link ends in .deb
 //https://dev.mysql.com/downloads/repo/apt/
 
 cd /tmp
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.*    
-sudo dpkg -i mysql-apt-config*
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb   
+sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
 
-//hit enter and OK when installing (arrow keys) 
+//select OK when installing (arrow keys) 
 
 sudo apt update
 sudo apt install mysql-server
 
-//I chose backpack10 as my password
+//Do not forget the password that you set during installation for the root mysql user. 
 
+//setup the database
 sudo mysql -u root -p 
 
 CREATE database users;
@@ -54,12 +55,21 @@ show databases;
 
 use users;
 
-CREATE TABLE security ( username VARCHAR(255), password VARCHAR(255), points VARCHAR(255) );
-//explain why int is needed
-ALTER TABLE users MODIFY points int;
+//we are using whole numbers for points, and will be doing math, so points column will be set as int
 
-INSERT INTO security (username, password) VALUES ('admin', '123456789');
+CREATE TABLE security ( username VARCHAR(255), password VARCHAR(255), points int );
 
+INSERT INTO security (username, password, points) VALUES ('admin', 'password', '100');
+
+
+CREATE TABLE submissions (
+  flag VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  timestamp DATETIME NOT NULL,
+  PRIMARY KEY (flag, username)
+);
+
+//verify the test insert
 select * from security; 
 
 flush privileges; 
