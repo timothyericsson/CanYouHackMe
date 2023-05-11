@@ -1,10 +1,7 @@
-//Step one: LAMP
-
 //Linux:
 Connect to your fresh debian ec2
 sudo apt update
 sudo apt upgrade
-sudo reboot
 
 //Apache2: 
 sudo apt install apache2
