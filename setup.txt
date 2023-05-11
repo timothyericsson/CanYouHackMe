@@ -33,11 +33,11 @@ sudo service apache2 status
 
 
 //MySQL: 
-//Copy download link here
+//Copy download link here, make sure copied link ends in .deb
 //https://dev.mysql.com/downloads/repo/apt/
 
 cd /tmp
-wget the file
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.*    
 sudo dpkg -i mysql-apt-config*
 
 //hit enter and OK when installing (arrow keys) 
