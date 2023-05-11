@@ -53,6 +53,8 @@ sudo mysql -u root -p
 CREATE database users;
 show databases;
 
+create database users;
+
 use users;
 
 //we are using whole numbers for points, and will be doing math, so points column will be set as int
