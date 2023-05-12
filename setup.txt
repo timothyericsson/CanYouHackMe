@@ -53,13 +53,15 @@ sudo mysql -u root -p
 CREATE database users;
 show databases;
 
-create database users;
-
 use users;
 
 //we are using whole numbers for points, and will be doing math, so points column will be set as int
 
-CREATE TABLE security ( username VARCHAR(255), password VARCHAR(255), points int );
+CREATE TABLE security (
+  username VARCHAR(255),
+  password VARCHAR(255),
+  points int DEFAULT 0
+);
 
 INSERT INTO security (username, password, points) VALUES ('admin', 'password', '100');
 
