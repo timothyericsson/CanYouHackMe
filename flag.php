@@ -68,7 +68,7 @@ if (isset($_SESSION["username"])) {
   }
 // Create a container div for the buttons and set its position, width and height
 // Adjust width +100px per extra button added
-echo "<div style='position: absolute; top: 0; right: 0; width: 450px; height: 100px;'>";
+echo "<div style='position: absolute; top: 0; right: 0; width: 500px; height: 100px;'>";
 
 // Create the buttons and set their margin and onclick attributes
 echo "<button style='margin: 10px;' onclick='location.href=\"index.php\"'>Home</button>";

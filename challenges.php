@@ -10,13 +10,12 @@ echo "<button style='margin: 10px;' onclick='location.href=\"leaderboard.php\"'>
 echo "<button style='margin: 10px;' onclick='location.href=\"profile.php\"'>My Profile</button>";
 echo "<button style='margin: 10px;' onclick='location.href=\"logout.php\"'>Logout</button>";
 echo "</div>";
-?>
 
-todo... for now try these values as flags. You should not be able to reuse them
-<br>
-<br>
-apple
-<br>
-banana
-<br>
-potato
+//challenges
+echo "Welcome. Choose a challenge.";
+echo "<div style='position: absolute; top: 25; left: 0; width: 250px; height: 100px;'>";
+echo "<button style='margin: 10px;' onclick='location.href=\"/tasks/LFI/easy-lfi.php\"'>LFI</button>";
+echo "<button style='margin: 10px;' onclick='location.href=\"challenges.php\"'>CSRF</button>";
+echo "</div>";
+
+?>
