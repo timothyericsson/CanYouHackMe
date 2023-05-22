@@ -21,7 +21,7 @@ sudo service apache2 stop
 
 //Php: 
 //Install dependancies 
-sudo apt install php libapache2-mod-php php-mysql gnupg
+sudo apt install php libapache2-mod-php php-mysql gnupg php-curl 
 
 //Restart Apache
 sudo service apache2 start 
@@ -58,6 +58,7 @@ sudo apt install mysql-server
 
 //setup the database
 
+sudo mysql -u root -p 
 
 CREATE database users;
 show databases;
@@ -72,7 +73,7 @@ CREATE TABLE security (
   points int DEFAULT 0
 );
 
-INSERT INTO security (username, password, points) VALUES ('admin', 'password', '100');
+INSERT INTO security (username, password, points) VALUES ('admin', 'abc123', '100');
 
 
 CREATE TABLE submissions (
@@ -99,6 +100,7 @@ ls -al
 cd WebFiles
 
 //move web files to /var/www/html/ 
+sudo rm /var/www/html/index.html
 sudo mv * /var/www/html
 cd /var/www/html
 sudo chown -R www-data:www-data /var/www
@@ -106,3 +108,8 @@ sudo chown -R www-data:www-data /var/www
 You may begin following the writeup.
 
 sudo chown -R banana_user:banana_user /home/banana_user
+
+//upload abuse page needs this folder writable 
+sudo chmod 777 /var/www/html/tasks/image2shell/uploads/
+
+sudo apt install dnsutils whois
