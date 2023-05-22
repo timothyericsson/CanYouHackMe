@@ -1,0 +1,115 @@
+//Linux:
+Connect to your fresh debian ec2
+sudo apt update
+sudo apt upgrade -y
+
+//transfer setup_ftp.sh and run it 
+sudo chmod +x setupftp.sh
+sudo bash setupftp.sh
+
+Follow instructions when prompted. 
+Connect to FTP as banana_user, and upload webfiles into the default ftp home for banana_user. 
+
+//Apache2: 
+sudo apt install apache2
+sudo service apache2 start
+sudo service apache2 status
+
+//Visit your web servers public IP in browser to verify that apache2 is //functional and security group was configured correctly. 
+
+sudo service apache2 stop
+
+//Php: 
+//Install dependancies 
+sudo apt install php libapache2-mod-php php-mysql gnupg php-curl 
+
+//Restart Apache
+sudo service apache2 start 
+sudo service apache2 status
+
+//Create and visit a test file
+
+<html>
+<head>
+<title>PHP Test</title>
+</head>
+<body>
+<?php echo '<p>Hello World</p>'; ?>
+</body>
+</html>
+
+
+//MySQL: 
+//Copy download link for mysql, make sure copied link ends in .deb
+//https://dev.mysql.com/downloads/repo/apt/
+
+cd /tmp
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb   
+sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
+
+//select OK when installing (arrow keys) 
+
+
+//install mysql and set the root user password to backpack10 when prompted
+sudo apt update
+sudo apt install mysql-server
+
+
+
+//setup the database
+
+sudo mysql -u root -p 
+
+CREATE database users;
+show databases;
+
+use users;
+
+//we are using whole numbers for points, and will be doing math, so points column will be set as int
+
+CREATE TABLE security (
+  username VARCHAR(255),
+  password VARCHAR(255),
+  points int DEFAULT 0
+);
+
+INSERT INTO security (username, password, points) VALUES ('admin', 'abc123', '100');
+
+
+CREATE TABLE submissions (
+  flag VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  timestamp DATETIME NOT NULL,
+  PRIMARY KEY (flag, username)
+);
+
+//verify the test insert
+select * from security; 
+
+flush privileges; 
+
+//Lamp stack finished.
+
+
+
+
+//Verify FTP transfer was successful 
+su banana_user
+cd ~
+ls -al
+cd WebFiles
+
+//move web files to /var/www/html/ 
+sudo rm /var/www/html/index.html
+sudo mv * /var/www/html
+cd /var/www/html
+sudo chown -R www-data:www-data /var/www
+
+You may begin following the writeup.
+
+sudo chown -R banana_user:banana_user /home/banana_user
+
+//upload abuse page needs this folder writable 
+sudo chmod 777 /var/www/html/tasks/image2shell/uploads/
+
+sudo apt install dnsutils whois
