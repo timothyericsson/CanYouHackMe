@@ -1,10 +1,14 @@
-//Linux:
-Connect to your fresh debian ec2
+Part of the learning experience is learning how to configure a "LAMP" stack. 
+Linux, Apache2, Mysql, PHP. This is still the most common stack for a website. 
+
+//Configure your Linux server: 
+-Connect to a fresh debian ec2. Ensure that its security group has no restrictions on inbound or outbound traffic. 
+-Update the server after connecting: 
 sudo apt update
 sudo apt upgrade -y
 
-//transfer setup_ftp.sh and run it 
-sudo chmod +x setupftp.sh
+//Transfer and execute setup_ftp.sh to setup the FTP portion. This will allow us to easily upload our web files.  
+sudo chmod +x setup_ftp.sh
 sudo bash setupftp.sh
 
 Follow instructions when prompted. 
@@ -15,57 +19,58 @@ sudo apt install apache2
 sudo service apache2 start
 sudo service apache2 status
 
-//Visit your web servers public IP in browser to verify that apache2 is //functional and security group was configured correctly. 
+//Visit your web servers public IP in your browser. This will verify that the EC2 security group was configured correctly. 
 
+-Stop Apache2 before installing PHP. 
 sudo service apache2 stop
 
-//Php: 
-//Install dependancies 
-sudo apt install php libapache2-mod-php php-mysql gnupg php-curl 
+//Install Php: 
+-Install dependancies 
+sudo apt install php libapache2-mod-php php-mysql gnupg dnsutils whois php-curl 
 
 //Restart Apache
 sudo service apache2 start 
+
+-Verify Apache2 is running 
 sudo service apache2 status
 
-//Create and visit a test file
-
-<html>
-<head>
-<title>PHP Test</title>
-</head>
-<body>
-<?php echo '<p>Hello World</p>'; ?>
-</body>
-</html>
+-Visit YOURIPHERE/test.php to verify that PHP was configured correctly.   
 
 
-//MySQL: 
-//Copy download link for mysql, make sure copied link ends in .deb
-//https://dev.mysql.com/downloads/repo/apt/
+//Add MySQL to Repository: 
+-Note: In the below lines, I am using the latest MySQL version as of writing. 
+-It is important for you to manually verify that this is still the latest version. 
+-https://dev.mysql.com/downloads/repo/apt/
 
 cd /tmp
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb   
 sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
 
-//select OK when installing (arrow keys) 
+-Select "OK" when installing (Use your arrow keys) 
 
 
-//install mysql and set the root user password to backpack10 when prompted
+//Install MySQL 
+-Set the root user password to backpack10 when prompted
+
 sudo apt update
 sudo apt install mysql-server
 
 
 
-//setup the database
+//Setup your database
 
+-Connect to the MySQL Command Line Interface
 sudo mysql -u root -p 
+
+
+-Create your database and tables
 
 CREATE database users;
 show databases;
+use users; 
 
-use users;
-
-//we are using whole numbers for points, and will be doing math, so points column will be set as int
+-We will be using whole numbers for our points column, and will be using math with this column. 
+-If we are using math on a column, we cannot leave it as VARCHAR(255) 
 
 CREATE TABLE security (
   username VARCHAR(255),
@@ -83,33 +88,44 @@ CREATE TABLE submissions (
   PRIMARY KEY (flag, username)
 );
 
-//verify the test insert
-select * from security; 
 
+
+-Verify the test insert
+select * from security; 
 flush privileges; 
 
-//Lamp stack finished.
+//Your LAMP stack is finished. 
 
 
 
+Part two: Configure the web files 
+  
+-On your Debian EC2 server, switch to the banana_user account. 
+-We will then place the web files into the web root. (/var/www/html/)
 
-//Verify FTP transfer was successful 
 su banana_user
+
+-You should see the files inside banana_user's home directory 
 cd ~
 ls -al
 cd WebFiles
 
-//move web files to /var/www/html/ 
+-Move web files to /var/www/html/ and give the www-data permission over them. 
+
 sudo rm /var/www/html/index.html
-sudo mv * /var/www/html
-cd /var/www/html
+sudo mv * /var/www/html/
+cd /var/www/html/
 sudo chown -R www-data:www-data /var/www
 
-You may begin following the writeup.
+-You may begin following the exploit walkthrough writeup.
 
-sudo chown -R banana_user:banana_user /home/banana_user
+----TODO----
+#Enable LFI to grab id_rsa + vsftpd.log for log poisoning 
+chmod 644 /home/banana_user/.ssh/id_rsa
+chmod 644 /var/log/vsftpd.log
 
-//upload abuse page needs this folder writable 
+//upload abuse page needs this folder writable - Needs testing 
 sudo chmod 777 /var/www/html/tasks/image2shell/uploads/
 
 sudo apt install dnsutils whois
+//need to configure a cron job to chmod/reset vsftpd log folder. 

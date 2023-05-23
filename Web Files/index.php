@@ -64,4 +64,4 @@ echo "</div>";
 
 <h1>Welcome to CanYouHack.Me</h1>
 <p>It has a login button on the top right</p>
-<p>There might be more to explore.</p>
+<p>There might be more to explore after logging in.</p>

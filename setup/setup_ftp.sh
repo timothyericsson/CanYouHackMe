@@ -33,6 +33,4 @@ echo "Just hit enter when prompted for a password"
 echo "Just hit enter when prompted for a password"
 ssh-keygen -t rsa -f /home/banana_user/.ssh/id_rsa
 cat /home/banana_user/.ssh/id_rsa.pub >> /home/banana_user/.ssh/authorized_keys
-#Enable LFI to grab id_rsa + vsftpd.log for log poisoning 
-chmod 644 /home/banana_user/.ssh/id_rsa
-chmod 644 /var/log/vsftpd.log
+
