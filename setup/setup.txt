@@ -127,5 +127,4 @@ chmod 644 /var/log/vsftpd.log
 //upload abuse page needs this folder writable - Needs testing 
 sudo chmod 777 /var/www/html/tasks/image2shell/uploads/
 
-sudo apt install dnsutils whois
 //need to configure a cron job to chmod/reset vsftpd log folder. 

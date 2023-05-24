@@ -1,4 +1,22 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CanYouHack.Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CanYouHack.Me</h1>
+    <nav>
+      <a href="index.php">Home</a>
+      <a href="leaderboard.php">Leaderboard</a>
+      <a href="profile.php">My Profile</a>
+      <a href="login.php">Login</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+  <br>
+  <?php
 // Define database parameters
 $db_host = "localhost"; // The hostname of the database server
 $db_user = "root"; // The username of the database user
@@ -37,31 +55,33 @@ echo "You have " . $row["points"] . " points. ";
 // Display an error message
 echo "Error: " . mysqli_error($conn) . ". ";
 }
-
-echo "</div>";
-
-// Create a container div for the buttons and set its position, width and height
-// Adjust width +100px per extra button added
-echo "<div style='position: absolute; top: 0; right: 0; width: 500px; height: 100px;'>";
-
-// Create the buttons and set their margin and onclick attributes
-echo "<button style='margin: 10px;' onclick='location.href=\"index.php\"'>Home</button>";
-echo "<button style='margin: 10px;' onclick='location.href=\"challenges.php\"'>Challenges</button>";
-echo "<button style='margin: 10px;' onclick='location.href=\"leaderboard.php\"'>Leaderboard</button>";
-echo "<button style='margin: 10px;' onclick='location.href=\"profile.php\"'>My Profile</button>";
-echo "<button style='margin: 10px;' onclick='location.href=\"logout.php\"'>Logout</button>";
-echo "</div>";
-
-} else {
-// Display a login button that redirects to a login page
-echo "<div style='position: absolute; top: 0; right: 0; width: 450px; height: 100px;'>";
-
-// Create the buttons and set their margin and onclick attributes
-echo "<button style='margin: 10px;' onclick='location.href=\"login.php\"'>Login</button>";
-echo "</div>";
 }
 ?>
+    <br>
 
-<h1>Welcome to CanYouHack.Me</h1>
-<p>It has a login button on the top right</p>
-<p>There might be more to explore after logging in.</p>
+  <main>
+    <section>
+      <h2>Welcome</h2>
+      <p>Choose a challenge to test your hacking skills.</p>
+      <ul class="challenges">
+        <li><a href="/tasks/LFI/easy-lfi.php">LFI</a></li>
+        <li><a href="/tasks/mysql/item.php">MySQL</a></li>
+        <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Reflected</a></li>
+        <li><a href="/tasks/XSS/reflected2.php">XSS Markdown Escaping</a></li>
+        <li><a href="/tasks/image2shell/profile.php">Image2Shell</a></li>
+        <li><a href="/tasks/RCE/rce.php">RCE</a></li>
+        <li><a href="/tasks/CSRF/easy-csrf.php">CSRF</a></li>
+        <li><a href="/tasks/BruteForce/brute.php">BruteForce</a></li>
+        <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
+        <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
+      </ul>
+    </section>
+
+
+  </main>
+
+  <footer>
+    <p>Open Source Pentesting Training - CanYouHack.Me</p>
+  </footer>
+</body>
+</html>
