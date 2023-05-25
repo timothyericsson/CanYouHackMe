@@ -92,16 +92,16 @@ session_start();
       <h2>Welcome</h2>
       <p>Choose a challenge to test your hacking skills.</p>
       <ul class="challenges">
-        <li><a href="/tasks/LFI/easy-lfi.php">LFI</a></li>
-        <li><a href="/tasks/mysql/item.php">MySQL</a></li>
-        <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Reflected</a></li>
-        <li><a href="/tasks/XSS/reflected2.php">XSS Markdown Escaping</a></li>
+        <li><a href="/tasks/LFI/easy-lfi.php">LFI & Log Poison</a></li>
+        <li><a href="/tasks/mysql/item.php">MySQL Injection</a></li>
         <li><a href="/tasks/image2shell/profile.php">Image2Shell</a></li>
-        <li><a href="/tasks/RCE/rce.php">RCE</a></li>
-        <li><a href="/tasks/CSRF/easy-csrf.php">CSRF</a></li>
-        <li><a href="/tasks/BruteForce/brute.php">BruteForce</a></li>
+        <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
+        <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
+        <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
         <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
         <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
+        <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
+        <li><a href="/tasks/XSS/reflected2.php">XSS Evasion</a></li>
       </ul>
     </section>
   </main>
