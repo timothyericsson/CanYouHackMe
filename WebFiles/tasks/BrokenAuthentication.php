@@ -72,7 +72,7 @@
             }
             ?>
         </div>
-
+            <br>
         <a class="btn" href="/index.php">Go Home</a>
     </div>
 </body>

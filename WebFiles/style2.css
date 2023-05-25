@@ -1,0 +1,51 @@
+/* Use a grey background color for the body */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+   }
+   
+   /* Use a container element to center and limit the width of the content */
+   .container {
+    max-width: 800px;
+    margin: 0 auto;
+   }
+   
+   /* Use a header element to display the welcome message */
+   header {
+    padding: 20px;
+    text-align: center;
+   }
+   
+   /* Use a main element to display the user's image and the upload form */
+   main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+   }
+   
+   /* Use a profile-image element to display the user's image */
+   .profile-image {
+    border: 5px solid #333333;
+    border-radius: 50%;
+   }
+   
+   /* Use an upload-form element to display the upload form */
+   .upload-form {
+    border: 2px solid #333333;
+    border-radius: 10px;
+    padding: 10px;
+   }
+   
+   /* Use a footer element to display the home link */
+   footer {
+    padding: 10px;
+    text-align: right;
+   }
+   
+   /* Use a home-link element to style the home link */
+   .home-link {
+    color: #333333;
+    text-decoration: none;
+   }
+   

@@ -1,34 +1,40 @@
-Part of the learning experience is learning how to configure a "LAMP" stack. 
-Linux, Apache2, Mysql, PHP. This is still the most common stack for a website. 
+Hello! Welcome to CanYouHack.Me
+This web app has ten+ challenges for you to practice various web application attacks. 
+This guide will first demonstrate how to setup the challenegs. 
 
-//Configure your Linux server: 
--Connect to a fresh debian ec2. Ensure that its security group has no restrictions on inbound or outbound traffic. 
--Update the server after connecting: 
+We are going to begin with configuring the most popular website, LAMP. 
+Lamp stands for: Linux, Apache2, Mysql, PHP.  
+
+--First, configure your Debian server: 
+-Connect to a fresh debian 11 EC2 from Amazon Web Services. (Or your cloud provider of choice)
+-Ensure that the EC2's security group has no restrictions on inbound or outbound traffic.  
+
+-Update the server's repository and packages are up to date after connecting: 
 sudo apt update
 sudo apt upgrade -y
 
-//Transfer and execute setup_ftp.sh to setup the FTP portion. This will allow us to easily upload our web files.  
+-Transfer and execute setup_ftp.sh to setup the FTP portion. This will allow us to easily upload our web files.  
 sudo chmod +x setup_ftp.sh
 sudo bash setup_ftp.sh
 
 Follow instructions when prompted. 
 Connect to FTP as banana_user, and upload webfiles into the default ftp home for banana_user. 
 
-//Apache2: 
+-Apache2 setup: 
 sudo apt install apache2
 sudo service apache2 start
 sudo service apache2 status
 
-//Visit your web servers public IP in your browser. This will verify that the EC2 security group was configured correctly. 
+-Visit your web servers public IP in your browser. This will verify that the EC2 security group was configured correctly. 
 
 -Stop Apache2 before installing PHP. 
 sudo service apache2 stop
 
-//Install Php: 
+-Install Php: 
 -Install dependancies 
 sudo apt install php libapache2-mod-php php-mysql gnupg dnsutils whois php-curl 
 
-//Restart Apache
+-Restart Apache
 sudo service apache2 start 
 
 -Verify Apache2 is running 
@@ -37,7 +43,7 @@ sudo service apache2 status
 -Visit YOURIPHERE/test.php to verify that PHP was configured correctly.   
 
 
-//Add MySQL to Repository: 
+-Add MySQL to Repository: 
 -Note: In the below lines, I am using the latest MySQL version as of writing. 
 -It is important for you to manually verify that this is still the latest version. 
 -https://dev.mysql.com/downloads/repo/apt/
@@ -49,7 +55,7 @@ sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
 -Select "OK" when installing (Use your arrow keys) 
 
 
-//Install MySQL 
+-Install MySQL 
 -Set the root user password to backpack10 when prompted
 
 sudo apt update
@@ -57,7 +63,7 @@ sudo apt install mysql-server
 
 
 
-//Setup your database
+-Setup your database
 
 -Connect to the MySQL Command Line Interface
 sudo mysql -u root -p 
@@ -94,7 +100,7 @@ CREATE TABLE submissions (
 select * from security; 
 flush privileges; 
 
-//Your LAMP stack is finished. 
+-Your LAMP stack is finished. 
 
 -----Part two: Configure the challenges----- 
   

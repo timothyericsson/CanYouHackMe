@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RCE Challenge - Remote Code Execution</title>
+    <title>Network Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             position: absolute;
             top: 20px;
             right: 20px;
-        }
-
+            text-decoration: none; 
+            }
         h2 {
             margin-top: 20px;
         }
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <h1>RCE Challenge - Remote Code Execution</h1>
+    <h1>Network Tool</h1>
 
     <a href="/index.php" class="home-button">Home</a>
 
