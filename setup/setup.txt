@@ -9,7 +9,7 @@ sudo apt upgrade -y
 
 //Transfer and execute setup_ftp.sh to setup the FTP portion. This will allow us to easily upload our web files.  
 sudo chmod +x setup_ftp.sh
-sudo bash setupftp.sh
+sudo bash setup_ftp.sh
 
 Follow instructions when prompted. 
 Connect to FTP as banana_user, and upload webfiles into the default ftp home for banana_user. 
@@ -96,35 +96,27 @@ flush privileges;
 
 //Your LAMP stack is finished. 
 
-
-
-Part two: Configure the web files 
+-----Part two: Configure the challenges----- 
   
--On your Debian EC2 server, switch to the banana_user account. 
--We will then place the web files into the web root. (/var/www/html/)
+-On your Debian EC2 server, switch to the banana_user account 
+-The password is banana123
 
 su banana_user
+cd ~
 
 -You should see the files inside banana_user's home directory 
-cd ~
 ls -al
 cd WebFiles
 
--Move web files to /var/www/html/ and give the www-data permission over them. 
+-Move web files to /var/www/html/ and give the www-data permission over them
 
 sudo rm /var/www/html/index.html
 sudo mv * /var/www/html/
 cd /var/www/html/
 sudo chown -R www-data:www-data /var/www
 
--You may begin following the exploit walkthrough writeup.
-
-----TODO----
-#Enable LFI to grab id_rsa + vsftpd.log for log poisoning 
+-Configure some of the challenges
 chmod 644 /home/banana_user/.ssh/id_rsa
-chmod 644 /var/log/vsftpd.log
+chmod 777 /var/www/html/tasks/image2shell/uploads/
 
-//upload abuse page needs this folder writable - Needs testing 
-sudo chmod 777 /var/www/html/tasks/image2shell/uploads/
-
-//need to configure a cron job to chmod/reset vsftpd log folder. 
+CanYouHack.Me is now properly configured. 

