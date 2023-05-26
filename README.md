@@ -1,6 +1,7 @@
 # CanYouHackMe
 A modern alternative to DVWA. Created for all students studying ethical hacking. 
-Please read setup.txt for setup instructions. Ten challenges are currently functional. 
+Please read setup.txt for setup instructions. Ten challenges are currently functional. Check out the demo site! 
+https://canyouhack.me/
 
 
 
