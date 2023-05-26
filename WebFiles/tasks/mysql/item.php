@@ -41,10 +41,14 @@ $result = mysqli_query($conn, $sql);
 
 // Check if there are any results
 if (mysqli_num_rows($result) > 0) {
+  // Added text above buttons. 
+  echo "<h1>Welcome to my store!</h1>"; 
+  echo "<p>Here you can find a variety of products for your everyday needs.</p>"; 
+
   // Display the item buttons
   while ($row = mysqli_fetch_assoc($result)) {
     // Display the item button
-    echo "<button class='item-button' onclick=\"location.href='item.php?id=" . $row['id'] . "'\">" . $row['name'] . "</button>&nbsp;";
+    echo "<button class='item-button' onclick=\"location.href='item.php?id=" . $row['id'] . "'\">" . $row['name'] . "</button> ";
   }
 }
 
@@ -63,7 +67,7 @@ mysqli_close($conn);
       margin: 20px;
     }
 
-    h2 {
+    h1, h2 {
       color: #333;
     }
 

@@ -85,7 +85,7 @@ CREATE TABLE security (
 );
 
 INSERT INTO security (username, password, points) VALUES ('admin', 'abc123', '100');
-
+INSERT INTO security (username, password, points) VALUES ('flag_MySQL', 'inj3cti0n', '10');
 
 CREATE TABLE submissions (
   flag VARCHAR(255) NOT NULL,
@@ -94,10 +94,25 @@ CREATE TABLE submissions (
   PRIMARY KEY (flag, username)
 );
 
+CREATE TABLE items (
+  id int NOT NULL AUTO_INCREMENT,
+  name varchar(255) NOT NULL,
+  description text,
+  price decimal(10,2),
+  rating int,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO items (name, description, price, rating) VALUES
+('Apple', 'A delicious and nutritious fruit.', 1.99, 5),
+('Banana', 'A sweet and creamy fruit.', 0.99, 4),
+('Potato', 'A versatile and affordable vegetable.', 0.50, 3),
+('Durian', 'A very smelly fruit.', 5.99, 2);
 
 
 -Verify the test insert
 select * from security; 
+select * from items;
 flush privileges; 
 
 -Your LAMP stack is finished. 

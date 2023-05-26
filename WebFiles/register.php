@@ -35,9 +35,9 @@ if (isset($_POST["register"])) {
 <html>
 <head>
  <title>Register</title>
- <!-- Add some CSS to style the page -->
+ <!-- Style the page -->
  <style>
- /* Set the background color and font family for the body */
+ /* background color  */
  body {
   background-color: lightblue;
   font-family: Verdana;

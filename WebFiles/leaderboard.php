@@ -12,48 +12,62 @@ $result = mysqli_query($db, $sql);
  <title>Leaderboard</title>
  <!-- Style -->
  <style>
- /* bg  */
+ /* bg */
  body {
-  background-color: lightblue;
-  font-family: Verdana;
+ background-color: lightblue;
+ font-family: Verdana;
  }
  /* h1 */
  h1 {
-  color: white;
-  font-family: Arial;
+ color: white;
+ font-family: Arial;
+ text-shadow: 2px 2px 4px #000000;
+ text-align: center;
  }
- /* container div */
- .container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 500px;
-  height: 100px;
+ /* button container div */
+ .button-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-top: 20px;
  }
  /* buttons */
  .button {
-  margin: 10px;
+ margin: 10px;
+ border-radius: 10px;
+ background-color: #007bff;
+ color: white;
+ font-weight: bold;
+ padding: 10px 20px;
+ transition: transform 0.3s;
  }
- /* Set the border */
+ /* button hover effect */
+ .button:hover {
+ transform: scale(1.1);
+ }
+ /* Set the border and style for the table */
  table {
-  border: 2px solid white;
-  padding: 10px;
-  text-align: center;
+ border-collapse: collapse;
+ margin: auto;
+ box-shadow: 5px 5px 15px #000000;
  }
  /* table header */
  th {
-  color: white;
-  font-weight: bold;
+ color: white;
+ font-weight: bold;
+ background-color: #007bff;
+ padding: 15px;
+ }
+ /* table data */
+ td {
+ color: black;
+ padding: 15px;
+ border-bottom: 1px solid white;
  }
  </style>
 </head>
 <body>
  <h1>Leaderboard</h1>
- <div class="container">
- <!-- Create the buttons and set their onclick attributes -->
- <button class="button" onclick='location.href="index.php"'>Home</button>
- <button class="button" onclick='location.href="logout.php"'>Logout</button>
- </div>
  <table>
  <tr>
  <th>Rank</th>
@@ -79,5 +93,10 @@ $result = mysqli_query($db, $sql);
  }
  ?>
  </table>
+ <div class="button-container">
+ <!-- Create the buttons and set their onclick attributes -->
+ <button class="button" onclick='location.href="index.php"'>Home</button>
+ <button class="button" onclick='location.href="logout.php"'>Logout</button>
+ </div>
 </body>
 </html>
