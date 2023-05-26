@@ -118,7 +118,7 @@ session_start();
     </section>
   </main>
   <footer>
-    <p>Open Source Pentesting Training - CanYouHack.Me</p>
+    <p>Open Source Pentesting Training - <a href="https://github.com/timothyericsson/CanYouHackMe/">CanYouHack.Me</a></p>
   </footer>
 </body>
 </html>
