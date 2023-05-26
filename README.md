@@ -4,5 +4,5 @@ Please read setup.txt for setup instructions. Ten challenges are currently funct
 
 
 
-![bbbbbbb](https://github.com/timothyericsson/CanYouHackMe/assets/132996353/a0f51927-b316-45f1-9eaf-be09e9e86e97)
 
+![github_disc](https://github.com/timothyericsson/CanYouHackMe/assets/132996353/f23d8907-7b60-4b08-ac49-dd2e16910794)
