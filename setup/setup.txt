@@ -13,19 +13,28 @@ Lamp stands for: Linux, Apache2, Mysql, PHP.
 sudo apt update
 sudo apt upgrade -y
 
--Transfer and execute setup_ftp.sh to setup the FTP portion. This will allow us to easily upload our web files.  
-sudo chmod +x setup_ftp.sh
+-Copy and paste to create setup_ftp.sh 
+
+cd ~
+nano setup_ftp.sh 
+(Paste inside the contents of setup_ftp.sh) 
+
+chmod +x setup_ftp.sh
 sudo bash setup_ftp.sh
 
-Follow instructions when prompted. 
-Connect to FTP as banana_user, and upload webfiles into the default ftp home for banana_user. 
+
+
+-Follow instructions when prompted. 
+-Connect to FTP as banana_user, and upload webfiles into the default ftp home for banana_user
+-Remember, the password is banana123
 
 -Apache2 setup: 
 sudo apt install apache2
 sudo service apache2 start
 sudo service apache2 status
 
--Visit your web servers public IP in your browser. This will verify that the EC2 security group was configured correctly. 
+-Visit your web servers public IP in your browser. 
+-This will verify that the EC2 security group was configured correctly. 
 
 -Stop Apache2 before installing PHP. 
 sudo service apache2 stop
@@ -40,11 +49,9 @@ sudo service apache2 start
 -Verify Apache2 is running 
 sudo service apache2 status
 
--Visit YOURIPHERE/test.php to verify that PHP was configured correctly.   
-
 
 -Add MySQL to Repository: 
--Note: In the below lines, I am using the latest MySQL version as of writing. 
+-Note: In the below lines, I am using the latest MySQL version. 
 -It is important for you to manually verify that this is still the latest version. 
 -https://dev.mysql.com/downloads/repo/apt/
 
@@ -52,20 +59,19 @@ cd /tmp
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb   
 sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
 
--Select "OK" when installing (Use your arrow keys) 
+-Select "Ok" when installing (Use your arrow keys) 
 
 
 -Install MySQL 
--Set the root user password to backpack10 when prompted
-
 sudo apt update
+
+-Set the root user password to backpack10 when prompted
 sudo apt install mysql-server
 
 
-
 -Setup your database
-
 -Connect to the MySQL Command Line Interface
+
 sudo mysql -u root -p 
 
 
@@ -85,6 +91,7 @@ CREATE TABLE security (
 );
 
 INSERT INTO security (username, password, points) VALUES ('admin', 'abc123', '100');
+
 INSERT INTO security (username, password, points) VALUES ('flag_MySQL', 'inj3cti0n', '10');
 
 CREATE TABLE submissions (
@@ -114,18 +121,19 @@ INSERT INTO items (name, description, price, rating) VALUES
 select * from security; 
 select * from items;
 flush privileges; 
+exit
 
 -Your LAMP stack is finished. 
 
------Part two: Configure the challenges----- 
+-----Part two: Configure the Website----- 
   
 -On your Debian EC2 server, switch to the banana_user account 
 -The password is banana123
 
 su banana_user
-cd ~
 
 -You should see the files inside banana_user's home directory 
+cd ~
 ls -al
 cd WebFiles
 
@@ -136,8 +144,4 @@ sudo mv * /var/www/html/
 cd /var/www/html/
 sudo chown -R www-data:www-data /var/www
 
--Configure some of the challenges
-chmod 644 /home/banana_user/.ssh/id_rsa
-chmod 777 /var/www/html/tasks/image2shell/uploads/
-
-CanYouHack.Me is now properly configured. 
+-CanYouHack.Me is now ready to use 

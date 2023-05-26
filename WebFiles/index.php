@@ -12,34 +12,46 @@ session_start();
   <header>
     <h1>CanYouHack.Me</h1>
     <nav>
-      <a href="index.php">Home</a>
-      <a href="leaderboard.php">Leaderboard</a>
-      <a href="profile.php">My Profile</a>
-      <?php
-      // Check if the user is logged in
-      if (isset($_SESSION["username"])) {
-        // Hide the login button
-        echo "<a href=\"login.php\" style=\"display: none;\">Login</a>";
-      } else {
-        // Show the login button
-        echo "<a href=\"login.php\">Login</a>";
-      }
-      ?>
-      <?php
-      // Check if the user is not logged in
-      if (!isset($_SESSION["username"])) {
-        // Hide the logout button
-        echo "<a href=\"logout.php\" style=\"display: none;\">Logout</a>";
-        // Show the register button
-        echo "<a href=\"register.php\">Register</a>";
-      } else {
-        // Show the logout button
-        echo "<a href=\"logout.php\">Logout</a>";
-        // Hide the register button
-        echo "<a href=\"register.php\" style=\"display: none;\">Register</a>";
-      }
-      ?>
-    </nav>
+ <a href="index.php">Home</a>
+ <a href="leaderboard.php">Leaderboard</a>
+ <?php
+ // Check if the user is not logged in
+ if (!isset($_SESSION["username"])) {
+ // Hide the My Profile button
+ echo "<a href=\"profile.php\" style=\"display: none;\">My Profile</a>";
+ } else {
+ // Show the My Profile button
+ echo "<a href=\"profile.php\">My Profile</a>";
+ }
+ ?>
+ <?php
+ // Check if the user is logged in
+ // Could be more efficient to use just one php code block for this
+ // Trying to do that introduces a weird spacing error. This solution is fine. 
+ if (isset($_SESSION["username"])) {
+ // Hide the login button
+ echo "<a href=\"login.php\" style=\"display: none;\">Login</a>";
+ } else {
+ // Show the login button
+ echo "<a href=\"login.php\">Login</a>";
+ }
+ ?>
+ <?php
+ // Check if the user is not logged in
+ if (!isset($_SESSION["username"])) {
+ // Hide the logout button
+ echo "<a href=\"logout.php\" style=\"display: none;\">Logout</a>";
+ // Show the register button
+ echo "<a href=\"register.php\">Register</a>";
+ } else {
+ // Show the logout button
+ echo "<a href=\"logout.php\">Logout</a>";
+ // Hide the register button
+ echo "<a href=\"register.php\" style=\"display: none;\">Register</a>";
+ }
+ ?>
+ </nav>
+
   </header>
   <br>
   <?php
