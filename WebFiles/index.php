@@ -1,125 +1,159 @@
-<?php
-// Start the session
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
   <title>CanYouHack.Me</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles for the header and navigation */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      margin-right: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Rest of the styles */
+    /* ... */
+
+    /* Styles for the welcome section */
+    .welcome {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 40px;
+    }
+
+    .challenges {
+      flex: 1;
+      margin-right: 50px;
+    }
+
+    .welcome p {
+      margin-bottom: 20px;
+    }
+
+    /* Styles for the additional sections */
+    .section {
+      flex: 1;
+      margin-left: 50px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Styles for the footer */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background-color: #333;
+      color: #fff;
+    }
+
+    footer a {
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
+  <?php
+    // Start the session
+    session_start();
+  ?>
   <header>
     <h1>CanYouHack.Me</h1>
     <nav>
- <a href="index.php">Home</a>
- <a href="leaderboard.php">Leaderboard</a>
- <?php
- // Check if the user is not logged in
- if (!isset($_SESSION["username"])) {
- // Hide the My Profile button
- echo "<a href=\"profile.php\" style=\"display: none;\">My Profile</a>";
- } else {
- // Show the My Profile button
- echo "<a href=\"profile.php\">My Profile</a>";
- }
- ?>
- <?php
- // Check if the user is logged in
- // Could be more efficient to use just one php code block for this
- // Trying to do that introduces a weird spacing error. This solution is fine. 
- if (isset($_SESSION["username"])) {
- // Hide the login button
- echo "<a href=\"login.php\" style=\"display: none;\">Login</a>";
- } else {
- // Show the login button
- echo "<a href=\"login.php\">Login</a>";
- }
- ?>
- <?php
- // Check if the user is not logged in
- if (!isset($_SESSION["username"])) {
- // Hide the logout button
- echo "<a href=\"logout.php\" style=\"display: none;\">Logout</a>";
- // Show the register button
- echo "<a href=\"register.php\">Register</a>";
- } else {
- // Show the logout button
- echo "<a href=\"logout.php\">Logout</a>";
- // Hide the register button
- echo "<a href=\"register.php\" style=\"display: none;\">Register</a>";
- }
- ?>
- </nav>
-
+      <a href="index.php">Home</a>
+      <a href="leaderboard.php">Leaderboard</a>
+      <?php
+        // Check if the user is not logged in
+        if (!isset($_SESSION["username"])) {
+          // Show the login and register buttons
+          echo "<a href=\"login.php\">Login</a>";
+          echo "<a href=\"register.php\">Register</a>";
+        } else {
+          // Show the My Profile and logout buttons
+          echo "<a href=\"profile.php\">My Profile</a>";
+          echo "<a href=\"logout.php\">Logout</a>";
+        }
+      ?>
+    </nav>
   </header>
+
   <br>
-  <?php
-  // Define database parameters
-  $db_host = "localhost"; // The hostname of the database server
-  $db_user = "root"; // The username of the database user
-  $db_pass = "backpack10"; // The password of the database user
-  $db_name = "users"; // The name of the database
+  
+  <div class="container">
+    <div class="welcome">
+      <div class="challenges">
+        <?php
+          // Check if the user is not logged in
+          if (!isset($_SESSION["username"])) {
+            echo "<h2>You are not signed in.</h2>";
+          } else {
+            // Display the welcome message
+            echo "<h2>Welcome, " . $_SESSION["username"] . "!</h2>";
+          }
+        ?>
+        <p>Choose a challenge to test your hacking skills.</p>
+        <ul class="challenges-list">
+          <li><a href="/tasks/LFI/easy-lfi.php">LFI & Log Poison</a></li>
+          <li><a href="/tasks/mysql/item.php">MySQL Injection</a></li>
+          <li><a href="/tasks/image2shell/upload.php">Image2Shell</a></li>
+          <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
+          <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
+          <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
+          <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
+          <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
+          <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
+          <li><a href="/tasks/XSS/reflected2.php">XSS Evasion</a></li>
+        </ul>
+      </div>
 
-  // Create a new mysqli object
-  $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+      <div class="section">
+        <section>
+          <h2>Warning!</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </section>
 
-  // Check for connection errors
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+        <section>
+          <h2>Disclaimer</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </section>
 
-  // Check if the user is already logged in
-  if (isset($_SESSION["username"])) {
-    // Display a welcome message
-    echo "<div style='text-align: left;'>";
-    echo "Welcome, " . $_SESSION["username"] . "! ";
+        <section>
+          <h2>General Instructions</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
 
-    // Query the database for the user's points
-    $sql = "SELECT points FROM security WHERE username = '" . $_SESSION["username"] . "'";
-    $result = mysqli_query($conn, $sql);
-
-    // Check if the query was successful
-    if ($result) {
-      // Fetch the points as an associative array
-      $row = mysqli_fetch_assoc($result);
-
-      // Display the points
-      echo "You have " . $row["points"] . " points. ";
-    } else {
-      // Display an error message
-      echo "Error: " . mysqli_error($conn) . ". ";
-    }
-    echo "</div>";
-  } else {
-    // Display a message that says "You are not signed in."
-    echo "<div style='text-align: left;'>";
-    echo "You are not signed in.";
-    echo "</div>";
-  }
-  ?>
-  <br>
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>Choose a challenge to test your hacking skills.</p>
-      <ul class="challenges">
-        <li><a href="/tasks/LFI/easy-lfi.php">LFI & Log Poison</a></li>
-        <li><a href="/tasks/mysql/item.php">MySQL Injection</a></li>
-        <li><a href="/tasks/image2shell/upload.php">Image2Shell</a></li>
-        <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
-        <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
-        <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
-        <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
-        <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
-        <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
-        <li><a href="/tasks/XSS/reflected2.php">XSS Evasion</a></li>
-      </ul>
-    </section>
-  </main>
   <footer>
-    <p>Open Source Pentesting Training - <a href="https://github.com/timothyericsson/CanYouHackMe/">CanYouHack.Me</a></p>
+    <p>Open Source Pentesting Training - <a href="https://github.com/timothyericsson/CanYouHackMe/" style="color: white;">CanYouHack.Me</a></p>
   </footer>
 </body>
 </html>
-
