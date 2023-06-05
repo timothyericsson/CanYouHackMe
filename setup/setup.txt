@@ -140,7 +140,7 @@ cd WebFiles
 -Move web files to /var/www/html/ and give the www-data permission over them
 
 sudo rm /var/www/html/index.html
-sudo mv * /var/www/html/
+sudo cp * /var/www/html/
 cd /var/www/html/
 sudo chown -R www-data:www-data /var/www
 
