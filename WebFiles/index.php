@@ -71,6 +71,18 @@
     footer a {
       color: #fff;
     }
+
+    /* Custom styles for challenge buttons */
+    .challenges-list li a {
+      display: inline-block;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      background-color: lightgray;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 25%; /* Reduce the width to approximately a quarter */
+    }
   </style>
 </head>
 <body>
