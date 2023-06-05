@@ -5,5 +5,6 @@ https://canyouhack.me/
 
 
 
+![placeholder_text](https://github.com/timothyericsson/CanYouHackMe/assets/132996353/dfa81321-1f45-45ff-9a64-807caf9411cd)
 
-![github_disc](https://github.com/timothyericsson/CanYouHackMe/assets/132996353/f23d8907-7b60-4b08-ac49-dd2e16910794)
+
