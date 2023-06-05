@@ -10,7 +10,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      background-color: #333;
+      background-color: lightblue;
       color: #fff;
     }
 
@@ -64,7 +64,7 @@
     footer {
       padding: 20px;
       text-align: center;
-      background-color: #333;
+      background-color: lightblue;
       color: #fff;
     }
 
