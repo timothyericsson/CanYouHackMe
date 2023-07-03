@@ -116,10 +116,18 @@ INSERT INTO items (name, description, price, rating) VALUES
 ('Potato', 'A versatile and affordable vegetable.', 0.50, 3),
 ('Durian', 'A very smelly fruit.', 5.99, 2);
 
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(255) NOT NULL,
+  country VARCHAR(255) DEFAULT NULL
+);
+
+INSERT INTO users (username, country) VALUES ('flag', '4n0th3r1nj3ct1on');
 
 -Verify the test insert
 select * from security; 
 select * from items;
+select * from users;
 flush privileges; 
 exit
 

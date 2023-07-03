@@ -60,7 +60,7 @@
 <h1>Gamer Phone Book!</h1>
 <h2>Enter your Gamertag and find other players in the same country!</h2>
 <br>
-<h2>Challenge Objective: Dump the security table by abusing this web application.</h2>
+<h2>Challenge Objective: Find the flag inside the table 'users' by abusing this web application.</h2>
 <form action="home.php" method="post">
 <input type="text" name="name" placeholder="Gamertag">
 <select name="country">

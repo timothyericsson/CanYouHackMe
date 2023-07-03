@@ -1,0 +1,3 @@
+Make same as two but prevent ?country=mexico from being abusable 
+They must use boolean ! 
+
