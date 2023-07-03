@@ -124,6 +124,19 @@ CREATE TABLE users (
 
 INSERT INTO users (username, country) VALUES ('flag', '4n0th3r1nj3ct1on');
 
+
+CREATE TABLE evilcorp (
+  username VARCHAR(255),
+  password VARCHAR(255)
+);
+
+INSERT INTO evilcorp (username, password)
+VALUES ('admin', 'supersecurepass123');
+
+
+
+
+
 -Verify the test insert
 select * from security; 
 select * from items;
