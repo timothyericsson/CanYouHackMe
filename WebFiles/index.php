@@ -128,6 +128,7 @@
         <ul class="challenges-list">
           <li><a href="/tasks/LFI/easy-lfi.php">LFI & Log Poison</a></li>
           <li><a href="/tasks/mysql/item.php">MySQL Injection</a></li>
+          <li><a href="/tasks/mysql/two/index.php">MySQL Injection #2</a></li>
           <li><a href="/tasks/image2shell/upload.php">Image2Shell</a></li>
           <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
           <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
