@@ -38,6 +38,8 @@ In some cases, the additional hyphen at the end, as in "-- -", may be necessary 
 This helps to avoid potential syntax errors that could arise if the original query includes certain characters or keywords immediately after the injection point. 
 The trailing hyphen ensures that the injected code is executed correctly by ensuring that any remnants of the original query are treated as comments.
 
+
+
 Okay, let's look at the home.php file 
 
 INSERT INTO users (username, country) VALUES ('$name', '$country')
@@ -64,6 +66,8 @@ By default, the PHP MySQLi extension does not allow multiple queries in a single
 So, no stacking queries in our injection. Let's think about another way we can attack this. 
 
 DIVE DEEP, WE SWIMMING NOW, DON'T DROWN !!! 
+
+
 
 Origional query: 
 INSERT INTO users (username, country) VALUES ('joe', 'mexico')

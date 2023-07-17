@@ -1,3 +1,4 @@
 Make same as two but prevent ?country=mexico from being abusable 
 They must use boolean ! 
 
+Make a script to reset the users table every ~3 hours 

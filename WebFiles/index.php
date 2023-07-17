@@ -129,14 +129,15 @@
           <li><a href="/tasks/LFI/easy-lfi.php">LFI & Log Poison</a></li>
           <li><a href="/tasks/mysql/item.php">MySQL Injection</a></li>
           <li><a href="/tasks/mysql/two/index.php">MySQL Injection #2</a></li>
+          <li><a href="/tasks/mysql/three/index.php">MySQL Injection #3</a></li>
           <li><a href="/tasks/image2shell/upload.php">Image2Shell</a></li>
           <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
           <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
           <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
           <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
           <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
+          <li><a href="/tasks/burp/intruder.php">Bean Counter Challenge</a></li>
           <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
-          <li><a href="/tasks/XSS/reflected2.php">XSS Evasion</a></li>
         </ul>
       </div>
 

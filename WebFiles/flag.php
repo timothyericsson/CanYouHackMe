@@ -35,8 +35,8 @@ if (isset($_SESSION["username"])) {
  // display an error message that the flag has already been submitted
  echo "Sorry, you have already submitted this flag.";
  } else {
- // check if the flag is valid
- if ($flag == "apple" || $flag == "4n0th3r1nj3ct1on" || $flag == "b4nana" || $flag == "p0tato" || $flag == "tr4v3rs4l" || $flag == "br0kenupload" || $flag == "inj3cti0n" || $flag == "c00lk1d" || $flag == "1ntrud3r") {
+ // check if the flag is valid 
+ if ($flag == "apple" || $flag == "boblovesbeans" || $flag == "4n0th3r1nj3ct1on" || $flag == "b4nana" || $flag == "p0tato" || $flag == "tr4v3rs4l" || $flag == "br0kenupload" || $flag == "inj3cti0n" || $flag == "c00lk1d" || $flag == "1ntrud3r") {
  // insert a new row in the submissions table with the flag, username and current timestamp
  $sql = "INSERT INTO submissions (flag, username, timestamp) VALUES ('$flag', '$username', NOW())";
  $result = mysqli_query($db, $sql);
