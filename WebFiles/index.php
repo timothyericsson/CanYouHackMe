@@ -136,7 +136,7 @@
           <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
           <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
           <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
-          <li><a href="/tasks/burp/intruder.php">Bean Counter Challenge</a></li>
+          <li><a href="/tasks/burp/beans.php">Bean Counter Challenge</a></li>
           <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
         </ul>
       </div>

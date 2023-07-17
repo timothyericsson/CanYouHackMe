@@ -31,6 +31,6 @@
     <h1>Congratulations!</h1>
     <p class="winner-message">Your guess was correct. You are the winner! Flag: boblovesbeans</p>
 
-    <p><a href="index.php" style="color: #007BFF; text-decoration: none;">Play Again?</a></p>
+    <p><a href="intruder.php" style="color: #007BFF; text-decoration: none;">Play Again?</a></p>
 </body>
 </html>

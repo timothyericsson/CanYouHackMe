@@ -1,6 +1,7 @@
+<input type="button" value="home" onclick="window.location.href='/index.php'">
 <?php
     // Initialize the total number of beans
-    $total_beans = 795;
+    $total_beans = 115;
 
     // Initialize an empty guess variable
     $guess = '';
@@ -68,7 +69,7 @@
     <!-- Display an image with controlled size using a class -->
     <img src="beans.png" alt="Jar of beans" class="jar-image">
 
-    <form action="intruder.php" method="post" class="guess-form">
+    <form action="beans.php" method="post" class="guess-form">
         <label for="guess">Your Guess:</label>
         <input type="number" id="guess" name="guess" value="<?= htmlspecialchars($guess) ?>"><br>
         <input type="submit" value="Submit">

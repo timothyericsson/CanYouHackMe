@@ -31,7 +31,7 @@
     <p>
       There is an example of directory traversal on this website. Can you find it?
     </p>
-    <a href="/index.php" class="button">Go Home</a>
+    <a href="/index.php" class="button">CanYouHack.Me</a>
   </div>
 </body>
 </html>
