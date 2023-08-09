@@ -165,4 +165,21 @@ sudo cp * /var/www/html/
 cd /var/www/html/
 sudo chown -R www-data:www-data /var/www
 
+
+--extra--
+
+Make this a cron job, for mysql 3 challenge: 
+
+contab -e
+0 */1 * * */home/admin/backendstuff/delete_rows.sh
+
+
+#!/bin/bash
+
+mysql -u your_username -pyour_password -D users -e "DELETE FROM users WHERE id NOT IN (SELECT id FROM (SELECT id FROM users ORDER BY id ASC LIMIT 12) as tmp);"
+
+
+
+
+
 -CanYouHack.Me is now ready to use 

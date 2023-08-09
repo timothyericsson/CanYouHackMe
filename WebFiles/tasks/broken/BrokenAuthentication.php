@@ -1,7 +1,7 @@
 <?php
 // Set the name and value of the cookie
 $cookie_name = "admin";
-$cookie_value = "admin=false";
+$cookie_value = "admin=no";
 
 // Encode the value using base64
 $encoded_value = base64_encode($cookie_value);
@@ -75,7 +75,7 @@ setcookie($cookie_name, $encoded_value, time() + (86400 * 30), "/"); // 86400 = 
  $adminCookie = isset($_COOKIE['admin']) ? decodeCookieValue($_COOKIE['admin']) : 'false';
 
  // Check if the user is an admin
- if ($adminCookie === 'admin=true') {
+ if ($adminCookie === 'admin=yes') {
  // User is a cool kid, load the contents of the cool kids zone
  echo "<p>Welcome to the Cool Kids Zone! Flag: c00lk1d</p>";
  } else {

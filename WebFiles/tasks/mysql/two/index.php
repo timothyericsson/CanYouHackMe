@@ -53,14 +53,22 @@
       top: 10px;
       right: 20px;
     }
+
+    .challenge-objective {
+      font-size: 14px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #666;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 <button class="home-button" onclick="location.href='/index.php'">CanYouHackMe Home</button>
+<h2 class="challenge-objective">Challenge Objective: Find the flag inside the table 'users' by abusing this web application.</h2>
 <h1>Gamer Phone Book!</h1>
 <h2>Enter your Gamertag and find other players in the same country!</h2>
 <br>
-<h2>Challenge Objective: Find the flag inside the table 'users' by abusing this web application.</h2>
 <form action="home.php" method="post">
 <input type="text" name="name" placeholder="Gamertag">
 <select name="country">
