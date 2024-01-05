@@ -42,6 +42,10 @@ sudo service apache2 stop
 -Install Php: 
 -Install dependancies 
 sudo apt install php libapache2-mod-php php-mysql gnupg dnsutils whois php-curl 
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+sudo systemctl enable mariadb
+sudo systemctl enable apache2
 
 -Restart Apache
 sudo service apache2 start 
