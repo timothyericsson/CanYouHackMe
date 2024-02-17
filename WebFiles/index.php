@@ -134,8 +134,11 @@
           <li><a href="/tasks/RCE/rce.php">Remote Code Execution</a></li>
           <li><a href="/tasks/CSRF/easy-csrf.php">Cross Site Request Forgery</a></li>
           <li><a href="/tasks/BruteForce/brute.php">Login BruteForce</a></li>
+		  <li><a href="/tasks/BruteForce/brute2.php">Login BruteForce #2</a></li>
+		  <li><a href="/tasks/BruteForce/brute3.php">Login BruteForce #3</a></li>
           <li><a href="/tasks/DirectoryTraversal.php">Directory Traversal</a></li>
           <li><a href="/tasks/BrokenAuthentication.php">Broken Authentication</a></li>
+		  <li><a href="/tasks/BrokenAuthentication2.php">Broken Authentication #2</a></li>
           <li><a href="/tasks/burp/beans.php">Bean Counter Challenge</a></li>
           <li><a href="/tasks/XSS/reflected.php?name=banana">XSS Introduction</a></li>
         </ul>

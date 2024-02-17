@@ -13,7 +13,7 @@ $country = $_POST['country'];
         exit;
       }
 
-header('Location: list.php?location=' . $country);
+header('Location: newlist.php?location=' . $country);
 
 $conn = new mysqli('localhost', 'root', 'backpack10', 'users');
 

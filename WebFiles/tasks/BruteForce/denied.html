@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Failure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light blue background */
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: white;
+            margin: auto;
+            width: 50%;
+            border: 2px solid #b3e5fc;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #0277bd; /* Darker blue for contrast */
+        }
+
+        button {
+            background-color: #29b6f6; /* Blue button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login Failed</h1>
+        <p>Sorry, your login attempt was unsuccessful. Please try again.</p>
+        <button onclick="window.location.href='brute3.php'">Retry Login</button>
+    </div>
+</body>
+</html>
