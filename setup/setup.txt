@@ -54,24 +54,6 @@ sudo service apache2 start
 sudo service apache2 status
 
 
--Add MySQL to Repository: 
--Note: In the below lines, I am using the latest MySQL version. 
--It is important for you to manually verify that this is still the latest version. 
--https://dev.mysql.com/downloads/repo/apt/
-
-cd /tmp
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.25-1_all.deb   
-sudo dpkg -i mysql-apt-config_0.8.25-1_all.deb
-
--Select "Ok" when installing (Use your arrow keys) 
-
-
--Install MySQL 
-sudo apt update
-
--Set the root user password to backpack10 when prompted
-sudo apt install mysql-server
-
 
 -Setup your database
 -Connect to the MySQL Command Line Interface
